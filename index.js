@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 dotenv.config()
-const mongodb = process.env.MONGO_DB
+const mongodb = process.env.mongo_DB
 
 const mongoose = require('mongoose');
 mongoose.connect(mongodb);
