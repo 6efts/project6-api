@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 8000;
-require('dotenv').config()
+const dotenv = require('dotenv');
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -9,8 +9,11 @@ const cors = require('cors');
 app.use(bodyParser.json());
 app.use(cors());
 
+dotenv.config()
+const mongodb = process.env.MONGO_DB
+
 const mongoose = require('mongoose');
-mongoose.connect(process.env.DB_CONNECTION_STRING);
+mongoose.connect(mongodb);
 
 const ItemRouter = require('./routes/items.js');
 // const PurchaseRouter = require('./routes/purchases.js');
